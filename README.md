@@ -1,34 +1,36 @@
 # poc-offiline-packages
 PoC with commands to install some packages on SO
 
-
 First step is download all the files in one VM like bastion with internet connectivity to be able to access:
 
 All the commands was tested on a virtual machine with centos 8 box created by vagrant
 
 Fixing CentsOS 8 repo:
 
+```sh
 cd /etc/yum.repos.d/;
 sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*;
 sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+```
 
+Install wget to download the files:
+```sh
 dnf install wget -y
+```
 
 ### WARNING ### - SELINUX is enabled, please set to permissive
-Offline installation:
-
 VM CICD:
 
 Python + Ansible + Jenkins
 
-#### Installing python38:
-rpm -Uvh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/chkconfig-1.19.1-1.el8.x86_64.rpm
-rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-pip-wheel-19.3.1-4.module_el8.5.0+896+eb9e77ba.noarch.rpm
+#### To install python38, you need to download these files via WGET before and, run these commands on VM:
+rpm -Uvh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/chkconfig-1.19.1-1.el8.x86_64.rpm<br>
+rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-pip-wheel-19.3.1-4.module_el8.5.0+896+eb9e77ba.noarch.rpm<br>
 rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-setuptools-wheel-41.6.0-5.module_el8.5.0+896+eb9e77ba.noarch.rpm
 rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-libs-3.8.8-4.module_el8.5.0+896+eb9e77ba.x86_64.rpm
 rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-3.8.8-4.module_el8.5.0+896+eb9e77ba.x86_64.rpm
 
-#### Installing Ansible:
+#### Installing Ansible, you need to download these files via WGET before and, run these commands on VM:
 rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-ply-3.9-9.el8.noarch.rpm
 rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-pycparser-2.14-14.el8.noarch.rpm
 rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-cffi-1.11.5-5.el8.x86_64.rpm
@@ -41,22 +43,22 @@ rpm -ivh http://mirror.nsc.liu.se/centos-store/8.5.2111/configmanagement/x86_64/
 rpm -ivh http://mirror.nsc.liu.se/centos-store/8.5.2111/configmanagement/x86_64/ansible-29/Packages/a/ansible-2.9.27-1.el8.noarch.rpm
 
 
-### Installing Jenkins: 
-https://www.server-world.info/en/note?os=CentOS_8&p=jenkins
-https://mohitgoyal.co/2019/02/16/install-jenkins-in-offline-mode-on-centos-rhel/
+### To install Jenkins, you need to download these files via WGET before and, run these commands on VM:: 
 
+#### Steps on Bastion:
 
-Steps:
+wget https://get.jenkins.io/war-stable/2.346.3/jenkins.war -O jenkins.war
+wget --no-check-certificate  https://nadwey.eu.org/java/11/jdk-11.0.17/jdk-11.0.17_linux-x64_bin.tar.gz -O java.tar.gz
 
 mkdir -p /usr/local/java && cd /usr/local/java/
-wget --no-check-certificate  https://nadwey.eu.org/java/11/jdk-11.0.17/jdk-11.0.17_linux-x64_bin.tar.gz -O java.tar.gz
+Copy the java file java.tar.gz downloaded before;
 tar -xzvf java.tar.gz
 
 export JAVA_HOME=/usr/local/java/jdk-11.0.17
 export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/
 export PATH=$PATH:$JAVA_HOME/bin
 
-wget https://get.jenkins.io/war-stable/2.346.3/jenkins.war -O /usr/local/bin/jenkins.war
+Copy Jenkins file downloaed on Bastion on /usr/local/bin/ directory;
 
 Install manually to enable fonts on Jenkins and, ignore JWT error:
 
