@@ -68,6 +68,8 @@ rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/fontconfig-
 
 vi /etc/systemd/system/jenkins.service
 
+```sh
+
 [Unit]
 Description=Jenkins Service
 After=network.target
@@ -81,13 +83,9 @@ Restart=on-abort
 [Install]
 WantedBy=multi-user.target
 
-
 systemctl daemon-reload
 
-firewall-cmd --zone=public --add-port=8080/tcp --permanent
-firewall-cmd --zone=public --add-service=http --permanent
-firewall-cmd --reload
-
+```
 
 cat /root/.jenkins/secrets/initialAdminPassword
 
@@ -111,7 +109,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 
 source /etc/profile
-wget https://download.sonatype.com/nexus/3/nexus-3.23.0-03-unix.tar.gz
+
 wget https://download.sonatype.com/nexus/3/nexus-3.44.0-01-unix.tar.gz
 groupadd nexus;
 useradd nexus -d /home/nexus -s /bin/sh -g nexus;
@@ -126,6 +124,10 @@ cp /opt/nexus-3.23.0-03/bin/nexus /opt/nexus-3.23.0-03/bin/nexus.bak
 sed -i "s%# INSTALL4J_JAVA_HOME_OVERRIDE=%INSTALL4J_JAVA_HOME_OVERRIDE=/usr/local/java/jdk1.8.0_201%g" /opt/nexus-3.23.0-03/bin/nexus
 
 vi /etc/systemd/system/nexus.service
+
+Add this content:
+
+```sh
 
 [Unit]
 Description=nexus service
@@ -147,5 +149,5 @@ systemctl daemon-reload
 systemctl enable nexus.service
 systemctl start nexus.service
 
-
+```
 
