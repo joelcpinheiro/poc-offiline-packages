@@ -39,16 +39,16 @@ rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38
 Before, copy the files via scp;<br> 
 
 ```sh
-rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-ply-3.9-9.el8.noarch.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-pycparser-2.14-14.el8.noarch.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-cffi-1.11.5-5.el8.x86_64.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-cryptography-3.2.1-5.el8.x86_64.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python3-pytz-2017.2-9.el8.noarch.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python3-babel-2.5.1-7.el8.noarch.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python3-markupsafe-0.23-19.el8.x86_64.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python3-jinja2-2.10.1-3.el8.noarch.rpm<br>
-rpm -ivh http://mirror.nsc.liu.se/centos-store/8.5.2111/configmanagement/x86_64/ansible-29/Packages/s/sshpass-1.06-8.el8.x86_64.rpm<br>
-rpm -ivh http://mirror.nsc.liu.se/centos-store/8.5.2111/configmanagement/x86_64/ansible-29/Packages/a/ansible-2.9.27-1.el8.noarch.rpm<br>
+rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-ply-3.9-9.el8.noarch.rpm
+rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-pycparser-2.14-14.el8.noarch.rpm
+rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-cffi-1.11.5-5.el8.x86_64.rpm
+rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/python3-cryptography-3.2.1-5.el8.x86_64.rpm
+rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python3-pytz-2017.2-9.el8.noarch.rpm
+rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python3-babel-2.5.1-7.el8.noarch.rpm
+rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python3-markupsafe-0.23-19.el8.x86_64.rpm
+rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python3-jinja2-2.10.1-3.el8.noarch.rpm
+rpm -ivh http://mirror.nsc.liu.se/centos-store/8.5.2111/configmanagement/x86_64/ansible-29/Packages/s/sshpass-1.06-8.el8.x86_64.rpm
+rpm -ivh http://mirror.nsc.liu.se/centos-store/8.5.2111/configmanagement/x86_64/ansible-29/Packages/a/ansible-2.9.27-1.el8.noarch.rpm
 ```
 
 ### To install Jenkins, you need to download these files via WGET before and, run these commands on Target VM: 
