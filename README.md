@@ -27,11 +27,11 @@ dnf install wget -y
 Before, copy the files via scp;<br> 
 
 ```sh
-rpm -Uvh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/chkconfig-1.19.1-1.el8.x86_64.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-pip-wheel-19.3.1-4.module_el8.5.0+896+eb9e77ba.noarch.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-setuptools-wheel-41.6.0-5.module_el8.5.0+896+eb9e77ba.noarch.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-libs-3.8.8-4.module_el8.5.0+896+eb9e77ba.x86_64.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-3.8.8-4.module_el8.5.0+896+eb9e77ba.x86_64.rpm<br>
+rpm -Uvh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/chkconfig-1.19.1-1.el8.x86_64.rpm
+rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-pip-wheel-19.3.1-4.module_el8.5.0+896+eb9e77ba.noarch.rpm
+rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-setuptools-wheel-41.6.0-5.module_el8.5.0+896+eb9e77ba.noarch.rpm
+rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-libs-3.8.8-4.module_el8.5.0+896+eb9e77ba.x86_64.rpm
+rpm -ivh https://vault.centos.org/centos/8/AppStream/x86_64/os/Packages/python38-3.8.8-4.module_el8.5.0+896+eb9e77ba.x86_64.rpm
 ```
 
 #### Installing Ansible, you need to download these files via WGET before and, run these commands on Target VM:
@@ -56,7 +56,7 @@ rpm -ivh http://mirror.nsc.liu.se/centos-store/8.5.2111/configmanagement/x86_64/
 #### Steps on Bastion:
 
 ```sh
-wget https://get.jenkins.io/war-stable/2.346.3/jenkins.war -O jenkins.war <br>
+wget https://get.jenkins.io/war-stable/2.346.3/jenkins.war -O jenkins.war
 wget --no-check-certificate  https://nadwey.eu.org/java/11/jdk-11.0.17/jdk-11.0.17_linux-x64_bin.tar.gz -O java.tar.gz
 ```
 #### Steps on Target VM:
@@ -65,8 +65,8 @@ Before, copy the files via scp;<br>
 
 ```sh
 
-mkdir -p /usr/local/java && cd /usr/local/java/<br>
-Copy the java file java.tar.gz downloaded before;<br>
+mkdir -p /usr/local/java && cd /usr/local/java/
+Copy the java file java.tar.gz downloaded before;
 tar -xzvf java.tar.gz
 
 export JAVA_HOME=/usr/local/java/jdk-11.0.17<br>
@@ -79,10 +79,10 @@ export PATH=$PATH:$JAVA_HOME/bin<br>
 #### Install manually to enable fonts on Jenkins and, ignore JWT error:
 ```sh
 
-rpm -ivh  https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/fontpackages-filesystem-1.44-22.el8.noarch.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/dejavu-fonts-common-2.35-7.el8.noarch.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/dejavu-sans-fonts-2.35-7.el8.noarch.rpm<br>
-rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/fontconfig-2.13.1-4.el8.x86_64.rpm<br>
+rpm -ivh  https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/fontpackages-filesystem-1.44-22.el8.noarch.rpm
+rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/dejavu-fonts-common-2.35-7.el8.noarch.rpm
+rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/dejavu-sans-fonts-2.35-7.el8.noarch.rpm
+rpm -ivh https://vault.centos.org/centos/8/BaseOS/x86_64/os/Packages/fontconfig-2.13.1-4.el8.x86_64.rpm
 ```
 
 #### Create Jenkins service file on SystemD:
@@ -125,7 +125,7 @@ cat /root/.jenkins/secrets/initialAdminPassword
 ### Steps on Bastion:
 
 ```sh
-wget --no-check-certificate https://nadwey.eu.org/java/8/jdk-8u201/jdk-8u201-linux-x64.tar.gz -O java.tar.gz <br>
+wget --no-check-certificate https://nadwey.eu.org/java/8/jdk-8u201/jdk-8u201-linux-x64.tar.gz -O java.tar.gz 
 wget https://download.sonatype.com/nexus/3/nexus-3.44.0-01-unix.tar.gz
 ```
 
