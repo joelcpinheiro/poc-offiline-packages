@@ -127,6 +127,8 @@ cat /root/.jenkins/secrets/initialAdminPassword
 
 ### VM SISTEMAS:
 
+### Nexus
+
 ### Steps on Bastion:
 
 ```sh
