@@ -141,7 +141,7 @@ wget https://download.sonatype.com/nexus/3/nexus-3.44.0-01-unix.tar.gz
 ```sh
 mkdir -p /usr/local/java && cd /usr/local/java/
 ```
-Copy the java.tar.gz file here<br>
+Copy the java.tar.gz file on **/usr/local/java/** <br>
 
 ```sh
 export JAVA_HOME=/usr/local/java/jdk1.8.0_201
