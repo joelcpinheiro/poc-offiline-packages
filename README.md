@@ -197,7 +197,9 @@ TimeoutSec=600
 [Install]
 WantedBy=multi-user.target
 
-systemctl daemon-reload && systemctl enable nexus.service && systemctl start nexus.service
 
 ```
 
+```sh
+systemctl daemon-reload && systemctl enable nexus.service && systemctl start nexus.service
+```
