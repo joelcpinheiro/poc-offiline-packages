@@ -69,9 +69,9 @@ mkdir -p /usr/local/java && cd /usr/local/java/
 Copy the java file java.tar.gz downloaded before;
 tar -xzvf java.tar.gz
 
-export JAVA_HOME=/usr/local/java/jdk-11.0.17<br>
-export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/<br>
-export PATH=$PATH:$JAVA_HOME/bin<br>
+export JAVA_HOME=/usr/local/java/jdk-11.0.17
+export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/
+export PATH=$PATH:$JAVA_HOME/bin
 ```
 
 #### Copy Jenkins file downloaed on Bastion on /usr/local/bin/ directory;
