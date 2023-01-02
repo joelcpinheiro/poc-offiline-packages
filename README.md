@@ -17,7 +17,12 @@ Install wget to download the files:
 dnf install wget -y
 ```
 
-### WARNING ### - SELINUX is enabled, please set to permissive
+### WARNING - SELINUX is enabled, please set to permissive running this command:<br>
+```sh
+setenforce 0
+```
+
+
 ### VM CICD:
 
 ### Python + Ansible + Jenkins
