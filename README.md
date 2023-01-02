@@ -52,12 +52,15 @@ rpm -ivh http://mirror.nsc.liu.se/centos-store/8.5.2111/configmanagement/x86_64/
 
 #### Steps on Bastion:
 
-wget https://get.jenkins.io/war-stable/2.346.3/jenkins.war -O jenkins.war
+```sh
+wget https://get.jenkins.io/war-stable/2.346.3/jenkins.war -O jenkins.war <br>
 wget --no-check-certificate  https://nadwey.eu.org/java/11/jdk-11.0.17/jdk-11.0.17_linux-x64_bin.tar.gz -O java.tar.gz
-
+```
 #### Steps on Target VM:
 
 Before, copy the files via scp;<br> 
+
+```sh
 
 mkdir -p /usr/local/java && cd /usr/local/java/<br>
 Copy the java file java.tar.gz downloaded before;<br>
@@ -66,6 +69,7 @@ tar -xzvf java.tar.gz
 export JAVA_HOME=/usr/local/java/jdk-11.0.17<br>
 export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/<br>
 export PATH=$PATH:$JAVA_HOME/bin<br>
+```
 
 #### Copy Jenkins file downloaed on Bastion on /usr/local/bin/ directory;
 
@@ -116,7 +120,7 @@ cat /root/.jenkins/secrets/initialAdminPassword
 ### Steps on Bastion:
 
 ```sh
-wget --no-check-certificate https://nadwey.eu.org/java/8/jdk-8u201/jdk-8u201-linux-x64.tar.gz -O java.tar.gz
+wget --no-check-certificate https://nadwey.eu.org/java/8/jdk-8u201/jdk-8u201-linux-x64.tar.gz -O java.tar.gz <br>
 wget https://download.sonatype.com/nexus/3/nexus-3.44.0-01-unix.tar.gz
 ```
 
