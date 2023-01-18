@@ -157,25 +157,25 @@ Some commands to configure Nexus service:
 ```sh
 groupadd nexus;
 useradd nexus -d /home/nexus -s /bin/sh -g nexus;
-chown -R nexus:nexus /opt/nexus-3.23.0-03;
-chmod -R 750 /opt/nexus-3.23.0-03/;
+chown -R nexus:nexus /opt/nexus-3.44.0-01;
+chmod -R 750 /opt/nexus-3.44.0-01/;
 chown -R nexus:nexus /opt/sonatype-work/;
 chmod -R 750 /opt/sonatype-work/;
 
 ```
 Check if Java version is configured on nexus file:<br>
 ```sh
-grep -i "INSTALL4J_JAVA_HOME_OVERRIDE" /opt/nexus-3.23.0-03/bin/nexus
+grep -i "INSTALL4J_JAVA_HOME_OVERRIDE" /opt/nexus-3.44.0-01/bin/nexus
 ```
 Do a backup of Nexus original config file:<br>
 
 ```sh
-cp /opt/nexus-3.23.0-03/bin/nexus /opt/nexus-3.23.0-03/bin/nexus.bak
+cp /opt/nexus-3.44.0-01/bin/nexus /opt/nexus-3.44.0-01/bin/nexus.bak
 ```
 
 Change the line with the Java version installed before:<br>
 ```sh
-sed -i "s%# INSTALL4J_JAVA_HOME_OVERRIDE=%INSTALL4J_JAVA_HOME_OVERRIDE=/usr/local/java/jdk1.8.0_201%g" /opt/nexus-3.23.0-03/bin/nexus
+sed -i "s%# INSTALL4J_JAVA_HOME_OVERRIDE=%INSTALL4J_JAVA_HOME_OVERRIDE=/usr/local/java/jdk1.8.0_201%g" /opt/nexus-3.44.0-01/bin/nexus
 ```
 
 #### Create Nexus service file on SystemD:
@@ -195,8 +195,8 @@ After=network.target
 [Service]
 Type=forking
 LimitNOFILE=65536
-ExecStart=/opt/nexus-3.23.0-03/bin/nexus start
-ExecStop=/opt/nexus-3.23.0-03/bin/nexus stop
+ExecStart=/opt/nexus-3.44.0-01/bin/nexus start
+ExecStop=/opt/nexus-3.44.0-01/bin/nexus stop
 User=nexus
 Restart=on-abort
 TimeoutSec=600
